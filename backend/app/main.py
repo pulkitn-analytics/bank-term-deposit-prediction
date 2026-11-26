@@ -34,9 +34,10 @@ app = FastAPI(
 )
 frontend_url = os.getenv("FRONTEND_URL")
 
-allowed_origins = [
+allowed_origins=[
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://bank-term-deposit-prediction-tau.vercel.app",
 ]
 
 if frontend_url:
