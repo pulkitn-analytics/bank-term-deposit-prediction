@@ -1,4 +1,4 @@
-# Bank Term Deposit Prediction — Backend
+# Bank Term Deposit Prediction - Backend
 
 ## Overview
 
