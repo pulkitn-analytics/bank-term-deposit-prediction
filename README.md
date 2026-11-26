@@ -1,102 +1,77 @@
-<!-- ==================== HEADER ==================== -->
+# BankSight — Bank Term Deposit Intelligence
 
-<div align="center">
+An end-to-end machine learning application that predicts whether a bank customer is likely to subscribe to a term deposit following a marketing campaign.
 
-# BankSight
+**[Open Live Application](https://bank-term-deposit-prediction-tau.vercel.app)** · **[Backend API](https://bank-term-deposit-api-z7b5.onrender.com)** · **[API Documentation](https://bank-term-deposit-api-z7b5.onrender.com/docs)**
 
-### Bank Term Deposit Intelligence
-
-**An End-to-End Machine Learning Application for Predicting Customer Term Deposit Subscriptions**
-
-<br/>
-
-<a href="https://bank-term-deposit-prediction-tau.vercel.app">
-  <img src="https://img.shields.io/badge/LIVE%20APPLICATION-Visit%20Demo-16A34A?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Application"/>
-</a>
-<a href="https://bank-term-deposit-api-z7b5.onrender.com">
-  <img src="https://img.shields.io/badge/BACKEND-API-2563EB?style=for-the-badge&logo=fastapi&logoColor=white" alt="Backend API"/>
-</a>
-<a href="https://bank-term-deposit-api-z7b5.onrender.com/docs">
-  <img src="https://img.shields.io/badge/API-DOCUMENTATION-7C3AED?style=for-the-badge&logo=swagger&logoColor=white" alt="API Documentation"/>
-</a>
-
-<br/><br/>
-
-<img src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white" alt="Python"/>
-<img src="https://img.shields.io/badge/Scikit--learn-ML-F7931E?style=flat&logo=scikitlearn&logoColor=white" alt="Scikit-learn"/>
-<img src="https://img.shields.io/badge/FastAPI-Backend-009688?style=flat&logo=fastapi&logoColor=white" alt="FastAPI"/>
-<img src="https://img.shields.io/badge/Next.js-Frontend-000000?style=flat&logo=nextdotjs&logoColor=white" alt="Next.js"/>
-<img src="https://img.shields.io/badge/React-UI-61DAFB?style=flat&logo=react&logoColor=black" alt="React"/>
-<img src="https://img.shields.io/badge/TypeScript-Language-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript"/>
-<img src="https://img.shields.io/badge/Render-Deployment-46E3B7?style=flat&logo=render&logoColor=black" alt="Render"/>
-<img src="https://img.shields.io/badge/Vercel-Deployment-000000?style=flat&logo=vercel&logoColor=white" alt="Vercel"/>
-
-</div>
+**Tech Stack:** Python · Scikit-learn · Pandas · FastAPI · Next.js · React · TypeScript · Tailwind CSS
 
 ---
 
 ## Contents
 
-- [Project Overview](#-project-overview)
-- [Business Problem](#-business-problem)
-- [Dataset](#-dataset)
-- [Exploratory Data Analysis](#-exploratory-data-analysis)
-- [Machine Learning Workflow](#-machine-learning-workflow)
-- [Model Development](#-model-development)
-- [Model Performance](#-model-performance)
-- [Application Architecture](#-application-architecture)
-- [API Endpoints](#-api-endpoints)
-- [Technology Stack](#-technology-stack)
-- [Project Structure](#-project-structure)
-- [Local Setup](#-local-setup)
-- [Testing](#-testing)
-- [Limitations](#-limitations)
-- [Author](#-author)
+1. [Project Overview](#project-overview)
+2. [Business Problem](#business-problem)
+3. [Dataset](#dataset)
+4. [Exploratory Data Analysis](#exploratory-data-analysis)
+5. [Machine Learning Workflow](#machine-learning-workflow)
+6. [Model Development](#model-development)
+7. [Model Performance](#model-performance)
+8. [Application Architecture](#application-architecture)
+9. [API Endpoints](#api-endpoints)
+10. [Technology Stack](#technology-stack)
+11. [Project Structure](#project-structure)
+12. [Local Setup](#local-setup)
+13. [Testing](#testing)
+14. [Limitations](#limitations)
+15. [Author](#author)
 
 ---
 
-## 🎯 Project Overview
+## Project Overview
 
-**BankSight** is an end-to-end machine learning project designed to predict whether a bank customer is likely to subscribe to a term deposit following a marketing campaign.
+**BankSight** is an end-to-end machine learning project developed to predict customer subscriptions to bank term deposits.
 
-The project brings together data analysis, feature engineering, machine learning, model evaluation, backend API development, and an interactive web application.
+The project covers the complete workflow, from data understanding and exploratory analysis to feature engineering, model development, evaluation, API integration and web application deployment.
 
-Rather than stopping at model training in a notebook, the selected model is integrated into a deployed application where users can submit customer information and obtain a prediction.
+Unlike a notebook-only machine learning project, the trained model is integrated into a deployed application where users can enter customer and campaign information and receive a subscription prediction.
 
-## 💡 Business Problem
+## Business Problem
 
 Banks conduct marketing campaigns to encourage customers to subscribe to term deposits. However, contacting every customer can be resource-intensive.
 
-The objective is to build a classification model that identifies customers with a higher likelihood of subscribing, helping make campaign targeting more informed.
+The objective is to develop a classification model that identifies customers who are more likely to subscribe, helping make marketing campaign targeting more informed.
 
 The model focuses on identifying positive subscription cases while considering the trade-off between precision and recall.
 
-## 📊 Dataset
+## Dataset
 
 The project uses the **Bank Marketing dataset** from the UCI Machine Learning Repository.
 
 | Dataset Attribute | Details |
 |---|---|
-| Source | UCI Machine Learning Repository |
-| File | `bank-additional-full.csv` |
+| Dataset file | `bank-additional-full.csv` |
 | Original records | 41,188 |
 | Records after duplicate removal | 41,176 |
-| Input features | 19 |
+| Original predictor columns | 20 |
+| Predictors used in the primary model | 19 |
 | Target variable | `y` |
 | Problem type | Binary Classification |
+
+The `duration` feature was excluded from the primary model because call duration is only known after a call has taken place.
 
 **Target distribution:**
 
 - `no` — 88.73%
 - `yes` — 11.27%
 
-The dataset is imbalanced, making recall, precision, F1-score, and PR-AUC important evaluation measures alongside accuracy.
+The dataset is imbalanced, making precision, recall, F1-score and PR-AUC important evaluation measures alongside accuracy.
 
-The raw dataset is intentionally not included in this repository. It should be placed inside `data/raw/` before running the notebooks.
+The raw dataset is not included in this repository. Place `bank-additional-full.csv` inside `data/raw/` before running the notebooks.
 
-## 🔎 Exploratory Data Analysis
+## Exploratory Data Analysis
 
-The exploratory analysis examines customer demographics, campaign characteristics, previous contact history, and subscription patterns.
+The exploratory analysis examines customer demographics, campaign characteristics, previous contact history and subscription patterns.
 
 Key areas include:
 
@@ -104,28 +79,24 @@ Key areas include:
 - Subscription patterns across categorical and numerical features.
 - Class imbalance in the target variable.
 - Relationships between previous campaign contacts and subscription outcomes.
-- Special handling of `pdays = 999`, which represents customers who were not previously contacted.
+- Special handling of `pdays = 999`, representing customers who were not previously contacted.
 
-**Target leakage consideration:** The `duration` feature was excluded from the primary model because call duration is only known after the call has taken place. Using it would introduce information that would not be available at the time of pre-call targeting.
+**Target leakage consideration:** The `duration` feature was excluded because it would introduce information unavailable at the time of pre-call targeting.
 
-## ⚙️ Machine Learning Workflow
-
-<div align="center">
+## Machine Learning Workflow
 
 | Stage | Process |
-|:---:|---|
-| **01** | Data Understanding |
-| **02** | Exploratory Data Analysis |
-| **03** | Data Cleaning & Preprocessing |
-| **04** | Feature Engineering |
-| **05** | Model Training & Cross-Validation |
-| **06** | Threshold Evaluation & Selection |
-| **07** | Model Serialization |
-| **08** | API Integration & Deployment |
+|---|---|
+| 01 | Data Understanding |
+| 02 | Exploratory Data Analysis |
+| 03 | Data Cleaning and Preprocessing |
+| 04 | Feature Engineering |
+| 05 | Model Training and Cross-Validation |
+| 06 | Threshold Evaluation and Selection |
+| 07 | Model Serialization |
+| 08 | API Integration and Deployment |
 
-</div>
-
-### Data Preprocessing & Feature Engineering
+### Data Preprocessing and Feature Engineering
 
 - Removed 12 exact duplicate records.
 - Used stratified train-test splitting with an 80:20 ratio.
@@ -135,7 +106,7 @@ Key areas include:
 - Replaced the special `pdays = 999` marker with a missing value for preprocessing.
 - Used a scikit-learn pipeline to combine preprocessing and classification.
 
-## 🤖 Model Development
+## Model Development
 
 The following classification algorithms were evaluated:
 
@@ -155,125 +126,92 @@ A decision threshold of **0.55** was selected as a recall-oriented precision-rec
 
 The threshold was selected based on model evaluation rather than a validated business-profit optimization.
 
-## 📈 Model Performance
+## Model Performance
 
 The final selected pipeline was evaluated on the held-out test set using a decision threshold of 0.55.
 
-<div align="center">
-
 | Metric | Test Score |
-|:---:|:---:|
-| **Accuracy** | **84.65%** |
-| **Precision (Yes)** | **38.87%** |
-| **Recall (Yes)** | **63.25%** |
-| **F1-score (Yes)** | **48.15%** |
-| **ROC-AUC** | **0.8001** |
-| **PR-AUC** | **0.4459** |
-
-</div>
+|---|---:|
+| Accuracy | 84.65% |
+| Precision (Yes) | 38.87% |
+| Recall (Yes) | 63.25% |
+| F1-score (Yes) | 48.15% |
+| ROC-AUC | 0.8001 |
+| PR-AUC | 0.4459 |
 
 ### Confusion Matrix
 
 | Actual / Predicted | No | Yes |
-|:---:|---:|---:|
-| **No** | 6,385 | 923 |
-| **Yes** | 341 | 587 |
+|---|---:|---:|
+| No | 6,385 | 923 |
+| Yes | 341 | 587 |
 
 **Interpretation:** The model identifies approximately 63% of actual subscribers in the test set. Its lower positive-class precision indicates that some customers predicted as subscribers do not ultimately subscribe.
 
-The selected threshold therefore reflects a recall-oriented trade-off, not a guarantee of campaign profitability.
+The selected threshold reflects a recall-oriented trade-off, not a guarantee of campaign profitability.
 
-## 🏗️ Application Architecture
+## Application Architecture
 
 The trained machine learning pipeline is integrated into a web application through a FastAPI backend.
 
-<div align="center">
+**Prediction flow:**
 
-**User Input**
-
-⬇
-
-**Next.js + React Frontend**
-
-⬇
-
-**FastAPI REST API**
-
-⬇
-
-**Feature Processing & Scikit-learn Pipeline**
-
-⬇
-
-**Subscription Prediction & Probability**
-
-⬇
-
-**Prediction Result in Web Interface**
-
-</div>
+1. User enters customer and campaign information through the web interface.
+2. The Next.js frontend sends the input to the backend API.
+3. FastAPI validates the incoming data.
+4. The serialized scikit-learn pipeline processes the features and generates a prediction.
+5. The API returns the prediction and associated probability to the frontend.
+6. The application displays the prediction result.
 
 ### Application Components
 
-**1. Machine Learning Pipeline**
-
+**Machine Learning Pipeline**
 - Serialized using Joblib.
 - Includes preprocessing and the selected classifier.
 - Applies the engineered feature logic and selected decision threshold.
 
-**2. Backend — FastAPI**
-
+**Backend — FastAPI**
 - Loads the trained pipeline.
 - Validates incoming customer and campaign data.
 - Exposes prediction and health-check endpoints.
 - Returns prediction results through a REST API.
 
-**3. Frontend — BankSight**
-
-- Built using Next.js, React, TypeScript, and Tailwind CSS.
+**Frontend — BankSight**
+- Built using Next.js, React, TypeScript and Tailwind CSS.
 - Provides an interface for entering customer and campaign information.
 - Communicates with the backend API.
 - Displays the resulting subscription prediction.
 
 **Deployment:** Frontend hosted on Vercel; backend hosted on Render.
 
-## 🔌 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Description |
-|:---:|---|---|
+|---|---|---|
 | GET | `/` | API welcome message |
 | GET | `/health` | API and model health check |
 | POST | `/predict` | Generate a subscription prediction |
 
 Interactive API documentation is available through the deployed [Swagger UI](https://bank-term-deposit-api-z7b5.onrender.com/docs).
 
-## 🧰 Technology Stack
+## Technology Stack
 
-<div align="center">
+| Category | Technologies |
+|---|---|
+| Programming Language | Python |
+| Data Analysis | Pandas, NumPy |
+| Data Visualization | Matplotlib, Seaborn |
+| Machine Learning | Scikit-learn, Statsmodels |
+| Notebook Environment | Jupyter Notebook |
+| Model Serialization | Joblib |
+| Backend | FastAPI, Pydantic, Uvicorn |
+| Frontend | Next.js, React, TypeScript |
+| Styling | Tailwind CSS |
+| Testing | Pytest, HTTPX |
+| Deployment | Render, Vercel |
+| Version Control | Git, GitHub |
 
-**Data Analysis & Machine Learning**
-
-<img src="https://skillicons.dev/icons?i=python" alt="Python" height="42"/>
-<img src="https://skillicons.dev/icons?i=pandas" alt="Pandas" height="42"/>
-<img src="https://skillicons.dev/icons?i=sklearn" alt="Scikit-learn" height="42"/>
-<img src="https://skillicons.dev/icons?i=jupyter" alt="Jupyter" height="42"/>
-
-**Backend Development**
-
-<img src="https://skillicons.dev/icons?i=fastapi" alt="FastAPI" height="42"/>
-<img src="https://skillicons.dev/icons?i=python" alt="Python" height="42"/>
-
-**Frontend Development**
-
-<img src="https://skillicons.dev/icons?i=nextjs,react,typescript,tailwind" alt="Frontend technologies" height="42"/>
-
-**Deployment & Version Control**
-
-<img src="https://skillicons.dev/icons?i=vercel,git,github" alt="Deployment and version control" height="42"/>
-
-</div>
-
-## 📁 Project Structure
+## Project Structure
 
 ```text
 bank-term-deposit-prediction/
@@ -320,7 +258,7 @@ bank-term-deposit-prediction/
 └── README.md
 ```
 
-## 🚀 Local Setup
+## Local Setup
 
 ### 1. Clone the repository
 
@@ -341,7 +279,7 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-### 3. Install dependencies
+### 3. Install Python dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -381,7 +319,7 @@ Frontend runs at `http://localhost:3000`.
 
 Configure the frontend's backend API URL according to the application's environment configuration before running it locally.
 
-## 🧪 Testing
+## Testing
 
 Backend API tests are implemented using Pytest and FastAPI TestClient.
 
@@ -391,9 +329,9 @@ Run from the project root:
 pytest -v
 ```
 
-The API test suite covers valid predictions, missing required fields, and optional macroeconomic inputs.
+The API test suite covers valid predictions, missing required fields and optional macroeconomic inputs.
 
-## ⚠️ Limitations & Considerations
+## Limitations
 
 - The model is trained on historical bank marketing data and may not generalize to different customer populations or campaign conditions.
 - The target variable is imbalanced; accuracy alone does not adequately represent positive-class performance.
@@ -403,12 +341,10 @@ The API test suite covers valid predictions, missing required fields, and option
 
 ---
 
-<div align="center">
+## Author
 
-### Built by Pulkit Narang
+**Pulkit Narang**
 
-**Data Science | Machine Learning | AI Applications**
+Data Science | Machine Learning | AI Applications
 
 [GitHub Profile](https://github.com/pulkitn-analytics) · [Project Repository](https://github.com/pulkitn-analytics/bank-term-deposit-prediction)
-
-</div>
