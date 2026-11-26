@@ -18,6 +18,7 @@ data/processed/*
 # Model artifacts
 models/*
 !models/.gitkeep
+!models/bank_term_deposit_pipeline.joblib
 
 # Frontend
 frontend/node_modules/
