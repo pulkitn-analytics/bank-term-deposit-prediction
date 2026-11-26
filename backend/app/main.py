@@ -3,6 +3,7 @@ from pathlib import Path
 import joblib
 import pandas as pd
 
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 from backend.app.schemas import CustomerInput
 
@@ -30,7 +31,16 @@ app = FastAPI(
     description="API for predicting bank term deposit subscriptions",
     version="1.0.0"
 )
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def home():
