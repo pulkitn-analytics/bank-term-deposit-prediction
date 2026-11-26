@@ -50,4 +50,26 @@ def test_missing_required_field():
     response = client.post("/predict", json=invalid_customer)
 
     assert response.status_code == 422
-    
+
+def test_prediction_with_missing_economic_indicators():
+    customer = sample_customer.copy()
+
+    optional_fields = [
+        "emp_var_rate",
+        "cons_price_idx",
+        "cons_conf_idx",
+        "euribor3m",
+        "nr_employed"
+    ]
+
+    for field in optional_fields:
+        customer.pop(field)
+
+    response = client.post("/predict", json=customer)
+
+    assert response.status_code == 200
+
+    result = response.json()
+
+    assert result["predicted_subscription"] in ["yes", "no"]
+    assert 0 <= result["subscription_probability"] <= 1    
