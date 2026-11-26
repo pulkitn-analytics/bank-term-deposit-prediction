@@ -2,7 +2,7 @@
 
 An end-to-end machine learning application that predicts whether a bank customer is likely to subscribe to a term deposit following a marketing campaign.
 
-**[Open Live Application](https://bank-term-deposit-prediction-tau.vercel.app)** · **[Backend API](https://bank-term-deposit-api-z7b5.onrender.com)** · **[API Documentation](https://bank-term-deposit-api-z7b5.onrender.com/docs)**
+**[Live Application](https://bank-term-deposit-prediction-tau.vercel.app)** · **[Backend API](https://bank-term-deposit-api-z7b5.onrender.com)** · **[API Documentation](https://bank-term-deposit-api-z7b5.onrender.com/docs)**
 
 **Tech Stack:** Python · Scikit-learn · Pandas · FastAPI · Next.js · React · TypeScript · Tailwind CSS
 
@@ -10,25 +10,25 @@ An end-to-end machine learning application that predicts whether a bank customer
 
 ## Contents
 
-1. [Project Overview](#project-overview)
-2. [Business Problem](#business-problem)
-3. [Dataset](#dataset)
-4. [Exploratory Data Analysis](#exploratory-data-analysis)
-5. [Machine Learning Workflow](#machine-learning-workflow)
-6. [Model Development](#model-development)
-7. [Model Performance](#model-performance)
-8. [Application Architecture](#application-architecture)
-9. [API Endpoints](#api-endpoints)
-10. [Technology Stack](#technology-stack)
-11. [Project Structure](#project-structure)
-12. [Local Setup](#local-setup)
-13. [Testing](#testing)
-14. [Limitations](#limitations)
-15. [Author](#author)
+1. [Project Overview](#01-project-overview)
+2. [Business Problem](#02-business-problem)
+3. [Dataset](#03-dataset)
+4. [Exploratory Data Analysis](#04-exploratory-data-analysis)
+5. [Machine Learning Workflow](#05-machine-learning-workflow)
+6. [Model Development](#06-model-development)
+7. [Model Performance](#07-model-performance)
+8. [Application Architecture](#08-application-architecture)
+9. [API Endpoints](#09-api-endpoints)
+10. [Technology Stack](#10-technology-stack)
+11. [Project Structure](#11-project-structure)
+12. [Local Setup](#12-local-setup)
+13. [Testing](#13-testing)
+14. [Limitations](#14-limitations)
+15. [Author](#15-author)
 
 ---
 
-## Project Overview
+## 01. 🎯 Project Overview
 
 **BankSight** is an end-to-end machine learning project developed to predict customer subscriptions to bank term deposits.
 
@@ -36,7 +36,7 @@ The project covers the complete workflow, from data understanding and explorator
 
 Unlike a notebook-only machine learning project, the trained model is integrated into a deployed application where users can enter customer and campaign information and receive a subscription prediction.
 
-## Business Problem
+## 02. Business Problem
 
 Banks conduct marketing campaigns to encourage customers to subscribe to term deposits. However, contacting every customer can be resource-intensive.
 
@@ -44,7 +44,7 @@ The objective is to develop a classification model that identifies customers who
 
 The model focuses on identifying positive subscription cases while considering the trade-off between precision and recall.
 
-## Dataset
+## 03. 📊 Dataset
 
 The project uses the **Bank Marketing dataset** from the UCI Machine Learning Repository.
 
@@ -69,7 +69,7 @@ The dataset is imbalanced, making precision, recall, F1-score and PR-AUC importa
 
 The raw dataset is not included in this repository. Place `bank-additional-full.csv` inside `data/raw/` before running the notebooks.
 
-## Exploratory Data Analysis
+## 04. Exploratory Data Analysis
 
 The exploratory analysis examines customer demographics, campaign characteristics, previous contact history and subscription patterns.
 
@@ -83,7 +83,7 @@ Key areas include:
 
 **Target leakage consideration:** The `duration` feature was excluded because it would introduce information unavailable at the time of pre-call targeting.
 
-## Machine Learning Workflow
+## 05. ⚙️ Machine Learning Workflow
 
 | Stage | Process |
 |---|---|
@@ -106,7 +106,7 @@ Key areas include:
 - Replaced the special `pdays = 999` marker with a missing value for preprocessing.
 - Used a scikit-learn pipeline to combine preprocessing and classification.
 
-## Model Development
+## 06. Model Development
 
 The following classification algorithms were evaluated:
 
@@ -126,7 +126,7 @@ A decision threshold of **0.55** was selected as a recall-oriented precision-rec
 
 The threshold was selected based on model evaluation rather than a validated business-profit optimization.
 
-## Model Performance
+## 07. 📈 Model Performance
 
 The final selected pipeline was evaluated on the held-out test set using a decision threshold of 0.55.
 
@@ -150,11 +150,11 @@ The final selected pipeline was evaluated on the held-out test set using a decis
 
 The selected threshold reflects a recall-oriented trade-off, not a guarantee of campaign profitability.
 
-## Application Architecture
+## 08. 🏗️ Application Architecture
 
 The trained machine learning pipeline is integrated into a web application through a FastAPI backend.
 
-**Prediction flow:**
+### Prediction Flow
 
 1. User enters customer and campaign information through the web interface.
 2. The Next.js frontend sends the input to the backend API.
@@ -184,7 +184,7 @@ The trained machine learning pipeline is integrated into a web application throu
 
 **Deployment:** Frontend hosted on Vercel; backend hosted on Render.
 
-## API Endpoints
+## 09. API Endpoints
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -194,7 +194,7 @@ The trained machine learning pipeline is integrated into a web application throu
 
 Interactive API documentation is available through the deployed [Swagger UI](https://bank-term-deposit-api-z7b5.onrender.com/docs).
 
-## Technology Stack
+## 10. Technology Stack
 
 | Category | Technologies |
 |---|---|
@@ -211,7 +211,7 @@ Interactive API documentation is available through the deployed [Swagger UI](htt
 | Deployment | Render, Vercel |
 | Version Control | Git, GitHub |
 
-## Project Structure
+## 11. 📁 Project Structure
 
 ```text
 bank-term-deposit-prediction/
@@ -258,7 +258,7 @@ bank-term-deposit-prediction/
 └── README.md
 ```
 
-## Local Setup
+## 12. 🚀 Local Setup
 
 ### 1. Clone the repository
 
@@ -319,7 +319,7 @@ Frontend runs at `http://localhost:3000`.
 
 Configure the frontend's backend API URL according to the application's environment configuration before running it locally.
 
-## Testing
+## 13. Testing
 
 Backend API tests are implemented using Pytest and FastAPI TestClient.
 
@@ -331,7 +331,7 @@ pytest -v
 
 The API test suite covers valid predictions, missing required fields and optional macroeconomic inputs.
 
-## Limitations
+## 14. Limitations
 
 - The model is trained on historical bank marketing data and may not generalize to different customer populations or campaign conditions.
 - The target variable is imbalanced; accuracy alone does not adequately represent positive-class performance.
@@ -341,7 +341,7 @@ The API test suite covers valid predictions, missing required fields and optiona
 
 ---
 
-## Author
+## 15. Author
 
 **Pulkit Narang**
 
