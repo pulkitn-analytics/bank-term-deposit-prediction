@@ -9,7 +9,6 @@ An end-to-end machine learning application that predicts whether a bank customer
 ---
 
 ## Contents
-
 1. [Project Overview](#01-project-overview)
 2. [Business Problem](#02-business-problem)
 3. [Dataset](#03-dataset)
@@ -18,13 +17,14 @@ An end-to-end machine learning application that predicts whether a bank customer
 6. [Model Development](#06-model-development)
 7. [Model Performance](#07-model-performance)
 8. [Application Architecture](#08-application-architecture)
-9. [API Endpoints](#09-api-endpoints)
-10. [Technology Stack](#10-technology-stack)
-11. [Project Structure](#11-project-structure)
-12. [Local Setup](#12-local-setup)
-13. [Testing](#13-testing)
-14. [Limitations](#14-limitations)
-15. [Author](#15-author)
+9. [Application Screenshots](#09-application-screenshots)
+10. [API Endpoints](#10-api-endpoints)
+11. [Technology Stack](#11-technology-stack)
+12. [Project Structure](#12-project-structure)
+13. [Local Setup](#13-local-setup)
+14. [Testing](#14-testing)
+15. [Limitations](#15-limitations)
+16. [Author](#16-author)
 
 ---
 
@@ -66,8 +66,6 @@ The `duration` feature was excluded from the primary model because call duration
 - `yes` — 11.27%
 
 The dataset is imbalanced, making precision, recall, F1-score and PR-AUC important evaluation measures alongside accuracy.
-
-The raw dataset is not included in this repository. Place `bank-additional-full.csv` inside `data/raw/` before running the notebooks.
 
 **Dataset Source:** [UCI Machine Learning Repository — Bank Marketing](https://doi.org/10.24432/C5K306)
 
