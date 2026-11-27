@@ -184,7 +184,21 @@ The trained machine learning pipeline is integrated into a web application throu
 
 **Deployment:** Frontend hosted on Vercel; backend hosted on Render.
 
-## 09. API Endpoints
+## 09. Application Screenshots
+
+### Homepage
+
+![BankSight Homepage](screenshots/01-homepage.png)
+
+### Prediction Input
+
+![Customer and Campaign Input Form](screenshots/02-prediction-input.png)
+
+### Prediction Result
+
+![Bank Term Deposit Prediction Result](screenshots/03-prediction-result.png)
+
+## 10. API Endpoints
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -194,7 +208,7 @@ The trained machine learning pipeline is integrated into a web application throu
 
 Interactive API documentation is available through the deployed [Swagger UI](https://bank-term-deposit-api-z7b5.onrender.com/docs).
 
-## 10. Technology Stack
+## 11. Technology Stack
 
 | Category | Technologies |
 |---|---|
@@ -211,7 +225,7 @@ Interactive API documentation is available through the deployed [Swagger UI](htt
 | Deployment | Render, Vercel |
 | Version Control | Git, GitHub |
 
-## 11. 📁 Project Structure
+## 12. 📁 Project Structure
 
 ```text
 bank-term-deposit-prediction/
@@ -258,7 +272,7 @@ bank-term-deposit-prediction/
 └── README.md
 ```
 
-## 12. 🚀 Local Setup
+## 13. 🚀 Local Setup
 
 ### 1. Clone the repository
 
@@ -319,7 +333,7 @@ Frontend runs at `http://localhost:3000`.
 
 Configure the frontend's backend API URL according to the application's environment configuration before running it locally.
 
-## 13. Testing
+## 14. Testing
 
 Backend API tests are implemented using Pytest and FastAPI TestClient.
 
@@ -331,7 +345,7 @@ pytest -v
 
 The API test suite covers valid predictions, missing required fields and optional macroeconomic inputs.
 
-## 14. Limitations
+## 15. Limitations
 
 - The model is trained on historical bank marketing data and may not generalize to different customer populations or campaign conditions.
 - The target variable is imbalanced; accuracy alone does not adequately represent positive-class performance.
@@ -341,7 +355,7 @@ The API test suite covers valid predictions, missing required fields and optiona
 
 ---
 
-## 15. Author
+## 16. Author
 
 **Pulkit Narang**
 
