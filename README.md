@@ -69,6 +69,12 @@ The dataset is imbalanced, making precision, recall, F1-score and PR-AUC importa
 
 The raw dataset is not included in this repository. Place `bank-additional-full.csv` inside `data/raw/` before running the notebooks.
 
+**Dataset Source:** [UCI Machine Learning Repository — Bank Marketing](https://doi.org/10.24432/C5K306)
+
+**Original Authors:** Sérgio Moro, P. Rita, and P. Cortez (2014).
+
+**License:** CC BY 4.0. The original dataset files are included in `data/raw/`. The project applies its own preprocessing, including the removal of 12 exact duplicate records.
+
 ## 04. Exploratory Data Analysis
 
 The exploratory analysis examines customer demographics, campaign characteristics, previous contact history and subscription patterns.
